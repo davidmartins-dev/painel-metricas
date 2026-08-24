@@ -48,7 +48,7 @@ export default function Painel({ slug }: PainelProps) {
       {/* Component's Own Header with Period Filter Component */}
       <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight capitalize text-slate-900">
+          <h1 className="text-3xl font-bold tracking-tight capitalize text-foreground">
             {isGeneral ? "Painel Geral de Vendas" : `Performance: ${categoryName}`}
           </h1>
           <p className="text-muted-foreground mt-1">

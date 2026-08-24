@@ -24,7 +24,7 @@ export function RevenueChart({ data }: RevenueChartProps) {
   return (
     <Card className="h-full shadow-sm flex flex-col">
       <CardHeader>
-        <CardTitle className="text-slate-800">Receita ao longo do tempo</CardTitle>
+        <CardTitle className="text-foreground">Receita ao longo do tempo</CardTitle>
         <CardDescription>
           Acompanhamento de vendas da categoria selecionada.
         </CardDescription>

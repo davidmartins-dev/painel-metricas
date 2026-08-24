@@ -15,7 +15,7 @@ export function TopProducts({ products }: TopProductsProps) {
   return (
     <Card className="h-full shadow-sm">
       <CardHeader>
-        <CardTitle className="text-slate-800">Top Produtos</CardTitle>
+        <CardTitle className="text-foreground">Top Produtos</CardTitle>
         <CardDescription>
           Os itens mais vendidos desta categoria.
         </CardDescription>
@@ -32,14 +32,14 @@ export function TopProducts({ products }: TopProductsProps) {
                 {product.name.substring(0, 2).toUpperCase()}
               </div>
               <div className="ml-4 space-y-1">
-                <p className="text-sm font-medium leading-none text-slate-800">
+                <p className="text-sm font-medium leading-none text-foreground">
                   {product.name}
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {product.sales} vendas
                 </p>
               </div>
-              <div className="ml-auto font-medium text-slate-800">
+              <div className="ml-auto font-medium text-foreground">
                 {product.revenue}
               </div>
             </div>
