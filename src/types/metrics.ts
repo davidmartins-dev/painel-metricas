@@ -5,12 +5,17 @@ export interface DummyCartProduct {
   price: number;
   quantity: number;
   total: number;
+  discountPercentage: number;
+  discountedPrice: number;
 }
 
 export interface DummyCart {
   id: number;
   products: DummyCartProduct[];
   total: number;
+  discountedTotal: number;
+  totalProducts: number;
+  totalQuantity: number;
   userId: number;
 }
 
@@ -23,7 +28,8 @@ export interface DashboardData {
   kpis: {
     receitaTotal: string;
     ticketMedio: string;
-    taxaRecompra: string;
+    totalDescontos: string;
+    mediaItensCarrinho: string;
   };
   revenueData: { 
     name: string; 
@@ -34,5 +40,9 @@ export interface DashboardData {
     name: string; 
     sales: number; 
     revenue: string 
+  }[];
+  availableProducts: {
+    value: string;
+    label: string;
   }[];
 }

@@ -32,7 +32,7 @@ export function RevenueChart({ data }: RevenueChartProps) {
       <CardContent className="px-2 pb-4 sm:px-6 flex-1">
         {/* Wrapper para garantir que o scroll aconteça DENTRO do card e não estique a tela */}
         <div className="overflow-x-auto w-full">
-          <div className="h-[300px] min-w-[500px]">
+          <div className="h-75 min-w-125">
             <ChartContainer config={chartConfig} className="h-full w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data}>
