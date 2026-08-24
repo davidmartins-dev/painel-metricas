@@ -1,6 +1,6 @@
 # Painel de Métricas BI - Desafio Técnico
 
-Trata-se de um pequeno painel com exibição de métricas de um e-commerce fictício de suplementos, utilizando API pública de dados para simular a exibição de métricas.
+Trata-se de um pequeno painel com exibição de métricas de um e-commerce fictício, utilizando API pública de dados para simular a exibição de métricas.
 
 ## 🎯 Objetivo e Visão de Negócio
 
@@ -21,7 +21,7 @@ As métricas foram pensadas nas KPIs reais que uma diretoria de e-commerce acomp
 
 1.  **Visão Geral (Cards):** Ticket Médio (AOV), Total de Pedidos e Receita Total.
 
-2.  **Performance de Vendas:** Gráficos mostrando a divisão de receita por categoria de produto (Proteínas, Aminoácidos, Emagrecedores).
+2.  **Performance de Vendas:** Gráficos mostrando a divisão de receita por categoria de produto.
 
 3.  **Top Produtos:** Os campeões de venda (Curva A) para rápido acompanhamento de performance e estoque.
 
