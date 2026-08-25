@@ -76,12 +76,12 @@ export function PeriodFilter({ period, onPeriodChange }: PeriodFilterProps) {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="flex flex-col gap-2 py-4">
-          <Button variant={localPeriod === 'all' ? 'default' : 'outline'} onClick={() => setLocalPeriod('all')} className={`justify-start ${localPeriod === 'all' ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}>Todo o período</Button>
-          <Button variant={localPeriod === '7d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('7d')} className={`justify-start ${localPeriod === '7d' ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}>Últimos 7 dias</Button>
-          <Button variant={localPeriod === '30d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('30d')} className={`justify-start ${localPeriod === '30d' ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}>Últimos 30 dias</Button>
-          <Button variant={localPeriod === '90d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('90d')} className={`justify-start ${localPeriod === '90d' ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}>Últimos 90 dias</Button>
-          <Button variant={localPeriod === '120d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('120d')} className={`justify-start ${localPeriod === '120d' ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}>Últimos 120 dias</Button>
-          <Button variant={localPeriod === 'custom' ? 'default' : 'outline'} onClick={() => setLocalPeriod('custom')} className={`justify-start ${localPeriod === 'custom' ? 'bg-indigo-600 hover:bg-indigo-700' : ''}`}>Personalizado...</Button>
+          <Button variant={localPeriod === 'all' ? 'default' : 'outline'} onClick={() => setLocalPeriod('all')} className={`justify-start ${localPeriod === 'all' ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>Todo o período</Button>
+          <Button variant={localPeriod === '7d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('7d')} className={`justify-start ${localPeriod === '7d' ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>Últimos 7 dias</Button>
+          <Button variant={localPeriod === '30d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('30d')} className={`justify-start ${localPeriod === '30d' ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>Últimos 30 dias</Button>
+          <Button variant={localPeriod === '90d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('90d')} className={`justify-start ${localPeriod === '90d' ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>Últimos 90 dias</Button>
+          <Button variant={localPeriod === '120d' ? 'default' : 'outline'} onClick={() => setLocalPeriod('120d')} className={`justify-start ${localPeriod === '120d' ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>Últimos 120 dias</Button>
+          <Button variant={localPeriod === 'custom' ? 'default' : 'outline'} onClick={() => setLocalPeriod('custom')} className={`justify-start ${localPeriod === 'custom' ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>Personalizado...</Button>
           
           {localPeriod === 'custom' && (
             <div className="flex gap-2 items-center mt-2 p-3 border rounded-md bg-slate-50 animate-in fade-in zoom-in-95">
@@ -108,7 +108,7 @@ export function PeriodFilter({ period, onPeriodChange }: PeriodFilterProps) {
         </div>
         <AlertDialogFooter>
           <AlertDialogCancel onClick={() => setLocalPeriod(period.startsWith("custom_") ? "custom" : period)}>Cancelar</AlertDialogCancel>
-          <Button onClick={handleApply} className="bg-indigo-600 hover:bg-indigo-700">Aplicar Filtro</Button>
+          <Button onClick={handleApply} className="bg-indigo-600 hover:bg-indigo-700 text-white">Aplicar Filtro</Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
