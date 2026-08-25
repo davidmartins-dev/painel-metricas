@@ -2,6 +2,8 @@
 
 Trata-se de um painel analítico (BI) de nível corporativo com exibição de métricas de um e-commerce fictício. O foco deste projeto vai muito além da interface visual, abrangendo qualidade de software (QA), automação de testes, CI/CD e simulação de consumo eficiente de APIs públicas.
 
+> 🔗 **[Acesse o Dashboard em Produção aqui (Vercel)](https://painel-metricas-nu.vercel.app/)**
+
 ## 🎯 Objetivo e Visão de Negócio
 
 Exibir métricas vitais para a tomada de decisão em um e-commerce moderno, garantindo confiabilidade nos dados através de lógicas robustas de filtro e drill-down, com uma interface que foca 100% na usabilidade (UX) e leitura de dados.
