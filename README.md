@@ -1,33 +1,59 @@
 # Painel de Métricas BI - Desafio Técnico
 
-Trata-se de um pequeno painel com exibição de métricas de um e-commerce fictício, utilizando API pública de dados para simular a exibição de métricas.
+Trata-se de um painel analítico (BI) de nível corporativo com exibição de métricas de um e-commerce fictício. O foco deste projeto vai muito além da interface visual, abrangendo qualidade de software (QA), automação de testes, CI/CD e simulação de consumo eficiente de APIs públicas.
 
 ## 🎯 Objetivo e Visão de Negócio
 
-Exibir métricas relevantes para um e-commerce, como ticket médio, total de pedidos e receita total, além de gráficos mostrando a divisão de receita por categoria de produto e top produtos.
+Exibir métricas vitais para a tomada de decisão em um e-commerce moderno, garantindo confiabilidade nos dados através de lógicas robustas de filtro e drill-down, com uma interface que foca 100% na usabilidade (UX) e leitura de dados.
 
 ## 🏗️ Arquitetura e Tecnologias
 
-*   **Next.js 15 (App Router):** Escolhido pelo poder de renderização otimizada, Server Components e estruturação escalável.
+* **Next.js 16 (App Router):** Escolhido pelo poder de renderização otimizada e estruturação escalável.
+* **BFF (Backend for Frontend):** Implementada uma rota de API dentro do próprio Next.js (`Route Handlers`) que atua como nossa camada lógica. Essa camada pega os dados brutos, aplica as regras de negócio (cálculo de Ticket Médio, somatória de vendas) e devolve apenas o dado consolidado, otimizando drasticamente o carregamento (KISS Principle).
+* **Tailwind CSS + shadcn/ui:** Design System corporativo e responsivo, suportando perfeitamente a alternância nativa entre Tema Claro e Tema Escuro (Dark Mode).
+* **Recharts:** Biblioteca flexível para a renderização visual dos dados (Client-side).
+* **Vitest & Playwright:** Ferramentas de engenharia de software escolhidas para blindar as regras de negócio (backend) e a interface (frontend).
 
-*   **BFF (Backend for Frontend):** Implementei uma rota de API dentro do próprio Next.js (`Route Handlers`) que atua como nossa API Simulada. Essa camada pega os dados brutos, aplica a regra de negócio (cálculo de Ticket Médio, somatória de vendas) e devolve apenas o consolidado para o Frontend, otimizando o carregamento da página no lado do cliente.
+## 📊 Features & UX
 
-*   **Tailwind CSS + shadcn/ui:** Para construir uma interface limpa, acessível e responsiva sem perder horas escrevendo CSS do zero. Utilizei os componentes `Card` e `Chart` para compor o BI.
-*   **Recharts:** Biblioteca poderosa e flexível para a renderização dos gráficos integrados ao shadcn.
+1. **Visão Geral Dinâmica (KPIs):** Ticket Médio (AOV), Receita Total, Média de Itens por Carrinho e Total de Descontos.
+2. **Drill-down Avançado:** Filtros de período dinâmicos (7d, 30d, personalizado) e seleção unitária por produto isolam automaticamente o contexto dos gráficos em tempo real.
+3. **Design System & Dark Mode:** Respeita o tema do sistema operacional, com tokens de cores contrastantes cuidadosamente mapeados (`text-foreground`).
 
-## 📊 Métricas Apresentadas
+## 🧪 Estratégia de Qualidade (QA)
 
-As métricas foram pensadas nas KPIs reais que uma diretoria de e-commerce acompanha diariamente:
+Para garantir que a matemática do BI não sofra regressões e a tela não quebre no celular do usuário, a aplicação possui duas camadas ativas de testes:
 
-1.  **Visão Geral (Cards):** Ticket Médio (AOV), Total de Pedidos e Receita Total.
+### Testes Unitários (Business Logic)
+Criados utilizando **Vitest**. Focados em validar isoladamente a lógica de cálculo (multiplicadores de período, agrupamentos e descontos) no `metrics.service.ts`, implementando *Mocking* seguro para não depender de chamadas externas de rede.
+```bash
+npm run test
+```
 
-2.  **Performance de Vendas:** Gráficos mostrando a divisão de receita por categoria de produto.
+### Testes End-to-End (E2E & Mobile)
+Criados utilizando **Playwright**. Validam o fluxo completo de interação do usuário (clicar no combo, abrir modal, alternar tema). O script de teste valida **5 instâncias paralelamente**: Chrome, Firefox, Safari (Webkit), Mobile Chrome (Pixel) e Mobile Safari (iPhone 12).
+```bash
+npm run test:e2e
+```
 
-3.  **Top Produtos:** Os campeões de venda (Curva A) para rápido acompanhamento de performance e estoque.
+## 🔄 CI/CD & Estratégia de Branches (Versionamento)
 
-## 🚀 Como Executar o Projeto Localmente
+O repositório simula o ambiente rígido de uma equipe Sênior e segue uma estrutura **GitFlow**:
+* `main`: Produção (Protegida).
+* `develop`: Integração/Staging (Protegida).
+* `feature/*`: Isolamento para novas implementações.
 
-1. Clone o repositório e acesse a pasta do projeto.
+**Pipeline de CI (GitHub Actions):** 
+Foi implementado um pipeline robusto (`.github/workflows/ci.yml`) para atuar como "Guarda-Costas" do repositório. O *Merge* de *Pull Requests* para `main` e `develop` fica travado (Status Checks) até que o servidor conclua:
+1. Instalação e verificação de cache (`npm`).
+2. Análise estática do código (`npm run lint`).
+3. Construção (Build) com sucesso (`npm run build`).
+4. Aprovação nos Testes Unitários (`Vitest`).
+5. Aprovação nos Testes E2E Desktop/Mobile (`Playwright`).
+
+## 🚀 Como Executar Localmente
+
+1. Clone o repositório e acesse a pasta.
 2. Instale as dependências:
 ```bash
 npm install
@@ -36,4 +62,4 @@ npm install
 ```bash
 npm run dev
 ```
-4. Acesse o painel em `http://localhost:3000` no seu navegador.
+4. Acesse `http://localhost:3000`.
