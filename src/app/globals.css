@@ -126,5 +126,23 @@
   }
   html {
     @apply font-sans;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
   }
+}
+
+/* Custom Scrollbar for Webkit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #475569;
 }
