@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, Mock } from 'vitest';
 import { MetricsService } from '../metrics.service';
 
 // Mock dos dados que a API pública (DummyJSON) retornaria
@@ -33,7 +33,7 @@ global.fetch = vi.fn();
 describe('MetricsService', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    (global.fetch as any).mockResolvedValue({
+    (global.fetch as Mock).mockResolvedValue({
       ok: true,
       json: async () => mockCartsResponse,
     });
